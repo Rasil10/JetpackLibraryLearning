@@ -5,16 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainActivityViewModel : ViewModel() {
-    private var count = MutableLiveData<Int>()
-    val mCount : LiveData<Int>
-    get() = count
+    val username  = MutableLiveData<String>()
 
     init {
-        count.value = 0
-    }
-
-    fun updateCount(){
-        count.value = count.value?.plus(1)
+        username.value = "Test Name"
     }
 
 }
