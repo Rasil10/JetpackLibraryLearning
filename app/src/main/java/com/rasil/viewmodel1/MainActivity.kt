@@ -18,11 +18,12 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainActivityViewModel::class.java)
 
         with(binding) {
-            answerTV.text = viewModel.getTotal().toString()
+            viewModel.total.observe(this@MainActivity,{
+                answerTV.text = it.toString()
+            })
             addButton.setOnClickListener {
                 if (!numberET.text.toString().isNullOrEmpty()) {
                     viewModel.setTotal(numberET.text.toString().toInt())
-                    answerTV.text = viewModel.getTotal().toString()
                 }
             }
         }
