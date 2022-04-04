@@ -15,9 +15,14 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
-        binding.countText.text = viewModel.getCurrentCount().toString()
-        binding.button.setOnClickListener {
-            binding.countText.text = viewModel.getUpdatedCount().toString()
+        with(binding) {
+            answerTV.text = viewModel.getTotal().toString()
+            addButton.setOnClickListener {
+                if (!numberET.text.toString().isNullOrEmpty()) {
+                    viewModel.setTotal(numberET.text.toString().toInt())
+                    answerTV.text = viewModel.getTotal().toString()
+                }
+            }
         }
     }
 }
