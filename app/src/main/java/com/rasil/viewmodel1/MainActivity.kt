@@ -15,9 +15,16 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
-        binding.countText.text = viewModel.getCurrentCount().toString()
-        binding.button.setOnClickListener {
-            binding.countText.text = viewModel.getUpdatedCount().toString()
-        }
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+
+//        viewModel.count.observe(this, {
+//            binding.countText.text = it.toString()
+//        })
+//
+//
+//        binding.button.setOnClickListener {
+//            viewModel.updateCount()
+//        }
     }
 }
