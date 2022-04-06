@@ -1,19 +1,18 @@
 package com.rasil.viewmodel1
 
+import androidx.databinding.Bindable
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainActivityViewModel(startingTotal : Int) : ViewModel() {
 
-    private var total = 0
+    val total = MutableLiveData<Int>()
 
-    init {
-        total = startingTotal
-    }
+    @Bindable
+    val inputText = MutableLiveData<String>()
 
-    fun getTotal() = total
-
-    fun setTotal(current: Int) {
-        total += current
+    fun updateCount(){
+        total.value = (total.value)?.plus(inputText.value!!.toInt())
     }
 
 }

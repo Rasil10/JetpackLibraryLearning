@@ -18,13 +18,10 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainActivityViewModel::class.java)
 
         with(binding) {
-            answerTV.text = viewModel.getTotal().toString()
-            addButton.setOnClickListener {
-                if (!numberET.text.toString().isNullOrEmpty()) {
-                    viewModel.setTotal(numberET.text.toString().toInt())
-                    answerTV.text = viewModel.getTotal().toString()
-                }
-            }
+            viewModel = viewModel
+            lifecycleOwner = this@MainActivity
+
+
         }
     }
 }
