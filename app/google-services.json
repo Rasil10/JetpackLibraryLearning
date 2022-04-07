@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "37757486206",
+    "project_id": "test-ed103",
+    "storage_bucket": "test-ed103.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37757486206:android:00b4e5c72d9bd17eee842f",
+        "android_client_info": {
+          "package_name": "com.rasil.viewmodel1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37757486206-4mqcpd8a1n82ji0klfuq0mmqlqsrq3ij.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmuEXM6ymVYgDJgZfqdOrs03TbN0FmgFw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37757486206-4mqcpd8a1n82ji0klfuq0mmqlqsrq3ij.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
