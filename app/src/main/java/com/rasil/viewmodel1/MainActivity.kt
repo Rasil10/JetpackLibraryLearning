@@ -22,8 +22,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.downloadUserDataButton.setOnClickListener {
-            CoroutineScope(Dispatchers.IO).launch {
-                downloadUserData()
+            CoroutineScope(Dispatchers.Main).launch {
+                binding.userMessageTV.text = UserDataManager().getTotalUserAccount().toString()
+                binding.userMessageTV.text = StructuredUserDataManager().getTotalUserAccount().toString()
             }
         }
     }
