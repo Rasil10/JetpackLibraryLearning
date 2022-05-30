@@ -1,21 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="myViewModel"
+            type="com.rasil.viewmodel1.SubscriberViewModel" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
         tools:context=".MainActivity">
 
 
-        <TextView
-            android:id="@+id/userTextView"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/subsriberNameET"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginTop="8dp"
+            android:hint="Subsriber Name"
+            android:inputType="textPersonName"
+            android:text="@={myViewModel.inputName}"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/subsriberEmailET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Subsriber Email"
+            android:inputType="textEmailAddress"
+            android:text="@={myViewModel.inputEmail}"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/saveUpdateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->myViewModel.saveOrUpdate()}"
+                android:text="@={myViewModel.saveOrUpdateButtonText}"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/clearDeleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:onClick="@{()->myViewModel.clearOrDelete()}"
+                android:text="@={myViewModel.clearOrDeleteButtonText}"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/subriberRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
 </layout>
